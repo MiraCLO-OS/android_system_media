@@ -90,6 +90,48 @@ cc_test {
 }
 
 cc_test {
+    name: "audio_channel_mask_utils_tests",
+    host_supported: true,
+    srcs: ["audio_channel_mask_utils_tests.cpp"],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+    cflags: [
+        "-Wthread-safety",
+    ],
+    target: {
+        android: {
+            shared_libs: ["libaudioutils"],
+        },
+        host: {
+            static_libs: ["libaudioutils"],
+        },
+    },
+}
+
+cc_test {
+    name: "audio_pcm_format_utils_tests",
+    host_supported: true,
+    srcs: ["audio_pcm_format_utils_tests.cpp"],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+    cflags: [
+        "-Wthread-safety",
+    ],
+    target: {
+        android: {
+            shared_libs: ["libaudioutils"],
+        },
+        host: {
+            static_libs: ["libaudioutils"],
+        },
+    },
+}
+
+cc_test {
     name: "audio_float_tests",
     host_supported: true,
     srcs: ["audio_float_tests.cpp"],
